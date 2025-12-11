@@ -2,7 +2,7 @@ import { Brand } from '@/types'
 
 export const brands: Brand[] = [
   { name: 'Öztiryakiler', logo: '/brands/oztiryakiler-logo.svg' },
-  { name: 'Kayalar', logo: '/brandskayalar.png' },
+  { name: 'Kayalar', logo: '/brands/kayalar.png' },
   { name: 'Empero', logo: '/brands/empero.png' },
   { name: 'İnoksan', logo: '/brands/inoksan.png' },
   { name: 'Portabianco', logo: '/brands/portabianco.png' },
@@ -14,7 +14,7 @@ export const brands: Brand[] = [
   { name: 'Pimak', logo: '/brands/pimak.png' },
   { name: 'Ndustrio', logo: '/brands/ndustrio.png' },
   { name: 'Remta', logo: '/brands/remta.webp' },
-  { name: 'Meşale', logo: '/meşale.png' },
+  { name: 'Meşale', logo: '/brands/meşale.png' },
   { name: 'Atalay', logo: '/brands/atalay.png' },
   { name: 'Bosfor', logo: '/brands/bosfor.png' },
   { name: 'Senox', logo: '/brands/senox.jpg' },
