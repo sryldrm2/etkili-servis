@@ -53,99 +53,9 @@ export default function Iletisim() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          {/* Contact Form */}
-          <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
-            <h2 className="text-2xl font-bold text-primary-dark mb-6">Bize Ulaşın</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-gray-700 mb-2">
-                  Ad Soyad *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-primary-dark transition-colors"
-                  placeholder="Adınız ve Soyadınız"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-gray-700 mb-2">
-                  E-posta *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-primary-dark transition-colors"
-                  placeholder="ornek@email.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="block text-gray-700 mb-2">
-                  Telefon *
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-primary-dark transition-colors"
-                  placeholder="05XX XXX XX XX"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-gray-700 mb-2">
-                  Mesajınız *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={5}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-primary-dark transition-colors resize-none"
-                  placeholder="Mesajınızı buraya yazın..."
-                />
-              </div>
-
-              {submitMessage && (
-                <div
-                  className={`p-4 rounded-lg ${
-                    submitMessage.type === 'success'
-                      ? 'bg-green-50 text-green-800 border border-green-200'
-                      : 'bg-red-50 text-red-800 border border-red-200'
-                  }`}
-                >
-                  {submitMessage.text}
-                </div>
-              )}
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-primary-lightest hover:bg-primary-lightest/90 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold px-8 py-4 rounded-lg transition-colors"
-              >
-                {isSubmitting ? 'Gönderiliyor...' : 'Gönder'}
-              </button>
-            </form>
-          </div>
-
+        <div className="flex justify-center mb-12">
           {/* Contact Information */}
-          <div className="space-y-6">
+          <div className="w-full max-w-2xl">
             <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
               <h2 className="text-2xl font-bold text-primary-dark mb-6">İletişim Bilgileri</h2>
               <div className="space-y-4">
@@ -191,8 +101,8 @@ export default function Iletisim() {
                   </div>
                   <div>
                     <h3 className="text-primary-dark font-semibold mb-1">E-posta</h3>
-                    <a href="mailto:info@etkiliservis.com" className="text-primary-dark hover:text-primary-dark/80 transition-colors">
-                      info@etkiliservis.com
+                    <a href="mailto:info@etkiliendustriyelservisi.com" className="text-primary-dark hover:text-primary-dark/80 transition-colors">
+                      info@etkiliendustriyelservisi.com
                     </a>
                   </div>
                 </div>
@@ -206,9 +116,7 @@ export default function Iletisim() {
                   <div>
                     <h3 className="text-primary-dark font-semibold mb-1">Çalışma Saatleri</h3>
                     <p className="text-gray-600">
-                      Pazartesi - Cuma: 8:30 - 17:00<br />
-                      Cumartesi: 8:30 - 17:00<br />
-                      Pazar: Kapalı
+                      8:30 - 17:00<br />
                     </p>
                   </div>
                 </div>
