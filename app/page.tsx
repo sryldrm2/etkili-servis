@@ -17,7 +17,7 @@ export default function Home() {
           }}
         />
         {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-primary-dark/80" />
+        <div className="absolute inset-0 bg-primary-dark/20" />
         
         {/* Content */}
         <div className="container mx-auto text-center relative z-10">
