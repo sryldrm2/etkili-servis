@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -9,8 +10,8 @@ import WhatsAppButton from '@/components/WhatsAppButton'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Etkili Servis - Endüstriyel Mutfak Ekipmanları Tamir Servisi',
-  description: 'İstanbul Anadolu Yakası, Gebze, Kocaeli ve İzmit bölgelerinde endüstriyel mutfak ekipmanları tamir hizmeti. Hızlı, güvenilir ve garantili servis.',
+  title: 'Etkili Endüstriyel Servis | İstanbul, Kocaeli, Gebze Endüstriyel Mutfak Ekipmanları Tamir Servisi',
+  description: 'İstanbul Anadolu Yakası, Kocaeli ve Gebze bölgesinde tüm endüstriyel mutfak ekipmanları için hızlı, güvenilir tamir ve teknik servis. Hemen arayın: 0535 418 24 31.',
 }
 
 export default function RootLayout({
@@ -21,6 +22,71 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <body className={inter.className}>
+        {/* Google Analytics Global Site Tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-VE6X24Z8N9"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-VE6X24Z8N9');
+          `}
+        </Script>
+        {/* LocalBusiness Schema Markup */}
+        <Script
+          id="local-business-schema"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Etkili Endüstriyel Servis",
+              "image": "https://www.etkiliendustriyelservisi.com/logo.png",
+              "url": "https://www.etkiliendustriyelservisi.com/",
+              "telephone": ["+905354182431", "+905051915357"],
+              "email": "info@etkiliendustriyelservisi.com",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Merve Mah. Sait Sok. No:18/A",
+                "addressLocality": "Sancaktepe",
+                "addressRegion": "İstanbul",
+                "postalCode": "34785",
+                "addressCountry": "TR"
+              },
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                  "opens": "08:30",
+                  "closes": "17:00"
+                }
+              ],
+              "areaServed": [
+                {
+                  "@type": "State",
+                  "name": "İstanbul"
+                },
+                {
+                  "@type": "City",
+                  "name": "Kocaeli"
+                },
+                {
+                  "@type": "City",
+                  "name": "Gebze"
+                },
+                {
+                  "@type": "City",
+                  "name": "İzmit"
+                }
+              ],
+              "hasMap": "https://maps.google.com/maps?q=Merve+Mahallesi+Sait+Sokak+No:18/A+Sancaktepe+İstanbul"
+            })
+          }}
+        />
         <Header />
         <main className="min-h-screen">
           {children}

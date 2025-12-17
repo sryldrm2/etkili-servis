@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { allServices } from '@/data/services'
 
 export async function generateStaticParams() {
@@ -20,8 +21,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 
   return {
-    title: `${service.title} - Etkili Servis`,
-    description: service.description,
+    title: `${service.title} Tamiri | İstanbul, Kocaeli, Gebze Servis - Etkili Endüstriyel Servis`,
+    description: `İstanbul, Kocaeli ve Gebze'de ${service.title.toLowerCase()} tamir servisi. ${service.description} Hızlı, garantili çözümler. Hemen arayın: 0535 418 24 31.`,
   }
 }
 
@@ -34,6 +35,27 @@ export default function ServiceDetail({ params }: { params: { slug: string } }) 
 
   return (
     <div className="min-h-screen bg-bg-light">
+      {/* Service Schema Markup */}
+      <Script
+        id={`service-schema-${service.slug}`}
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": `${service.title} Tamiri ve Servisi`,
+            "description": `${service.description} İstanbul, Kocaeli ve Gebze bölgesinde yerinde hizmet.`,
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Etkili Endüstriyel Servis",
+              "telephone": "+905354182431",
+              "areaServed": ["İstanbul", "Kocaeli", "Gebze", "İzmit"]
+            },
+            "areaServed": ["İstanbul", "Kocaeli", "Gebze", "İzmit"]
+          })
+        }}
+      />
       {/* Back Button */}
       <div className="container mx-auto max-w-4xl px-4 pt-8">
         <Link
@@ -53,7 +75,7 @@ export default function ServiceDetail({ params }: { params: { slug: string } }) 
           <div className="flex flex-col items-center justify-center">
             {/* Product Title */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 text-center">
-              {service.title}
+              {service.title} Tamir Servisi
             </h1>
 
             {/* Product Image in White Box */}
