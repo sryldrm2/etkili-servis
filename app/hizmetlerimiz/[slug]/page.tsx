@@ -21,8 +21,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 
   return {
-    title: `${service.title} Tamiri | İstanbul, Kocaeli, Gebze Servis - Etkili Endüstriyel Servis`,
-    description: `İstanbul, Kocaeli ve Gebze'de ${service.title.toLowerCase()} tamir servisi. ${service.description} Hızlı, garantili çözümler. Hemen arayın: 0535 418 24 31.`,
+    title: service.seo.metaTitle,
+    description: service.seo.metaDescription,
+    alternates: {
+      canonical: `/hizmetlerimiz/${service.slug}`,
+    },
   }
 }
 
@@ -44,13 +47,28 @@ export default function ServiceDetail({ params }: { params: { slug: string } }) 
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "serviceType": `${service.title} Tamiri ve Servisi`,
-            "description": `${service.description} İstanbul, Kocaeli ve Gebze bölgesinde yerinde hizmet.`,
+            "url": `https://www.etkiliendustriyelservisi.com/hizmetlerimiz/${service.slug}`,
+            "serviceType": `${service.title} Servisi`,
+            "description": service.seo.metaDescription,
             "provider": {
               "@type": "LocalBusiness",
               "name": "Etkili Endüstriyel Servis",
               "telephone": "+905354182431",
-              "areaServed": ["İstanbul", "Kocaeli", "Gebze", "İzmit"]
+            },
+            availableChannel: {
+              "@type": "ServiceChannel",
+              "servicePhone": "+905354182431",
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Endüstriyel Mutfak Servisleri",
+              "itemListElement": service.seo.problems.map((problem) => ({
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": problem,
+                }
+              }))
             },
             "areaServed": ["İstanbul", "Kocaeli", "Gebze", "İzmit"]
           })
@@ -75,7 +93,7 @@ export default function ServiceDetail({ params }: { params: { slug: string } }) 
           <div className="flex flex-col items-center justify-center">
             {/* Product Title */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 text-center">
-              {service.title} Tamir Servisi
+              {service.seo.h1}
             </h1>
 
             {/* Product Image in White Box */}
@@ -83,7 +101,7 @@ export default function ServiceDetail({ params }: { params: { slug: string } }) 
               <div className="h-full w-full flex items-center justify-center">
                 <img
                   src={service.image}
-                  alt={service.title}
+                  alt={`${service.title} Servisi İstanbul`}
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -97,8 +115,31 @@ export default function ServiceDetail({ params }: { params: { slug: string } }) 
         <div className="container mx-auto max-w-4xl">
           <div className="bg-white rounded-xl p-8 shadow-sm">
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+              {service.seo.intro}
+            </p>
+
+            <p className='text-lg text-gray-700 mb-6 leading-relaxed'>
               {service.fullDescription}
             </p>
+
+            <h2 className="text-2xl font-bold text-primary-dark mb-4">
+              {service.seo.problemsTitle}
+            </h2>
+
+            <ul className="list-disc pl-6 text-gray-700 mb-6">
+              {service.seo.problems.map((problem) => (
+                <li key={problem}>{problem}</li>
+              ))}
+            </ul>
+
+            <h2 className="text-2xl font-semibold text-primary-dark mb-4">
+              Neden Etkili Endüstriyel Servis?
+            </h2>
+            <ul className="list-disc pl-6 text-gray-700 mb-6">
+              <li>Aynı gün servis</li>
+              <li>Garantili onarım</li>
+              <li>İstanbul ve Kocaeli geneli hizmet</li>
+            </ul>
 
             {/* CTA Section */}
             <div className="border-t border-gray-200 pt-6 mt-6">
@@ -110,7 +151,7 @@ export default function ServiceDetail({ params }: { params: { slug: string } }) 
                   href="/iletisim"
                   className="bg-primary-lightest text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary-lightest/90 transition-colors shadow-md text-center"
                 >
-                  İletişime Geç
+                  Hemen Ara – Aynı Gün Servis
                 </Link>
                 <a
                   href="tel:05354182431"
