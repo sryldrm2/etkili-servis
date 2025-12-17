@@ -52,8 +52,14 @@ export default function ServiceDetail({ params }: { params: { slug: string } }) 
             "description": service.seo.metaDescription,
             "provider": {
               "@type": "LocalBusiness",
+              "@id": "https://www.etkiliendustriyelservisi.com/#localbusiness",
               "name": "Etkili Endüstriyel Servis",
+              "url": "https://www.etkiliendustriyelservisi.com",
               "telephone": "+905354182431",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "TR"
+              }
             },
             availableChannel: {
               "@type": "ServiceChannel",
