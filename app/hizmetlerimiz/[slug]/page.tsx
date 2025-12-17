@@ -47,14 +47,14 @@ export default function ServiceDetail({ params }: { params: { slug: string } }) 
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "url": `https://www.etkiliendustriyelservisi.com/hizmetlerimiz/${service.slug}`,
+            "url": `https://etkiliendustriyelservisi.com/hizmetlerimiz/${service.slug}`,
             "serviceType": `${service.title} Servisi`,
             "description": service.seo.metaDescription,
             "provider": {
               "@type": "LocalBusiness",
-              "@id": "https://www.etkiliendustriyelservisi.com/#localbusiness",
+              "@id": "https://etkiliendustriyelservisi.com/#localbusiness",
               "name": "Etkili Endüstriyel Servis",
-              "url": "https://www.etkiliendustriyelservisi.com",
+              "url": "https://etkiliendustriyelservisi.com",
               "telephone": "+905354182431",
               "address": {
                 "@type": "PostalAddress",

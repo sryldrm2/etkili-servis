@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://etkiliendustriyelservisi.com/sitemap.xml
+
