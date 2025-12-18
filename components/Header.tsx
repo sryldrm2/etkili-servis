@@ -19,11 +19,14 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2" onClick={closeMenu}>
-            <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-              <span className="text-primary-darkest font-bold text-xl">ES</span>
+          <Link href="/" className="flex items-center space-x-2" onClick={closeMenu} aria-label="Etkili Servis Anasayfa">
+            <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
+              <span className="text-primary-darkest font-extrabold text-xl">ES</span>
             </div>
-            <span className="text-white font-bold text-xl">Etkili Servis</span>
+            <div className='flex flex-col'>
+              <span className="text-white font-bold text-xl leading-none">Etkili Servis</span>
+              <span className="text-primary-lightest text-[10px] uppercase tracking-widest font-semibold">Endüstriyel Teknik Destek</span>
+            </div>
           </Link>
 
           {/* Kendi logolarını isterlerse burayı aç*/}
@@ -39,26 +42,26 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="text-gray-200 hover:text-white transition-colors"
             >
               Anasayfa
             </Link>
-            <Link 
-              href="/hizmetlerimiz" 
+            <Link
+              href="/hizmetlerimiz"
               className="text-gray-200 hover:text-white transition-colors"
             >
               Hizmetlerimiz
             </Link>
-            <Link 
-              href="/referanslar" 
+            <Link
+              href="/referanslar"
               className="text-gray-200 hover:text-white transition-colors"
             >
               Referanslar
             </Link>
-            <Link 
-              href="/iletisim" 
+            <Link
+              href="/iletisim"
               className="text-gray-200 hover:text-white transition-colors"
             >
               İletişim
@@ -67,14 +70,14 @@ export default function Header() {
 
           {/* Desktop Phone Buttons */}
           <div className="hidden md:flex items-center space-x-3">
-            <a 
-              href="tel:05354182431" 
+            <a
+              href="tel:05354182431"
               className="bg-primary-lightest text-white font-semibold px-4 py-2 rounded-lg transition-colors items-center space-x-2 shadow-md hover:shadow-lg hover:bg-primary-lightest/90 text-sm"
             >
               <span>0535 418 24 31</span>
             </a>
-            <a 
-              href="tel:05051915357" 
+            <a
+              href="tel:05051915357"
               className="bg-primary-lightest text-white font-semibold px-4 py-2 rounded-lg transition-colors items-center space-x-2 shadow-md hover:shadow-lg hover:bg-primary-lightest/90 text-sm"
             >
               <span>0505 191 53 57</span>
@@ -82,7 +85,7 @@ export default function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="md:hidden text-white p-2"
             onClick={toggleMenu}
             aria-label="Menu"
@@ -103,36 +106,36 @@ export default function Header() {
         {isMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 border-t border-white/20 pt-4">
             <div className="flex flex-col space-y-4">
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 className="text-gray-200 hover:text-white transition-colors py-2"
                 onClick={closeMenu}
               >
                 Anasayfa
               </Link>
-              <Link 
-                href="/hizmetlerimiz" 
+              <Link
+                href="/hizmetlerimiz"
                 className="text-gray-200 hover:text-white transition-colors py-2"
                 onClick={closeMenu}
               >
                 Hizmetlerimiz
               </Link>
-              <Link 
-                href="/referanslar" 
+              <Link
+                href="/referanslar"
                 className="text-gray-200 hover:text-white transition-colors py-2"
                 onClick={closeMenu}
               >
                 Referanslar
               </Link>
-              <Link 
-                href="/iletisim" 
+              <Link
+                href="/iletisim"
                 className="text-gray-200 hover:text-white transition-colors py-2"
                 onClick={closeMenu}
               >
                 İletişim
               </Link>
-              <a 
-                href="tel:05354182431" 
+              <a
+                href="tel:05354182431"
                 className="bg-primary-lightest text-white font-semibold px-6 py-3 rounded-lg transition-colors flex items-center justify-center space-x-2 mt-2 shadow-md hover:bg-primary-lightest/90"
                 onClick={closeMenu}
               >
@@ -141,8 +144,8 @@ export default function Header() {
                 </svg>
                 <span>0535 418 24 31</span>
               </a>
-              <a 
-                href="tel:05051915357" 
+              <a
+                href="tel:05051915357"
                 className="bg-primary-lightest text-white font-semibold px-6 py-3 rounded-lg transition-colors flex items-center justify-center space-x-2 mt-2 shadow-md hover:bg-primary-lightest/90"
                 onClick={closeMenu}
               >

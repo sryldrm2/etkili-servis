@@ -1,5 +1,9 @@
+# *
 User-agent: *
 Allow: /
 
-Sitemap: https://etkiliendustriyelservisi.com/sitemap.xml
+# Host
+Host: https://etkiliendustriyelservisi.com
 
+# Sitemaps
+Sitemap: https://etkiliendustriyelservisi.com/sitemap.xml

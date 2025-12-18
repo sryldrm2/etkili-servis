@@ -11,9 +11,12 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://etkiliendustriyelservisi.com'),
-  title: 'Etkili Endüstriyel Servis | İstanbul, Kocaeli, Gebze Endüstriyel Mutfak Ekipmanları Tamir Servisi',
+  title: {
+    default: "Etkili Servis | İstanbul, Kocaeli, Gebze Endüstriyel Mutfak Servisi",
+    template: "%s | Etkili Servis",
+  },
   description:
-   'İstanbul Anadolu Yakası, Kocaeli ve Gebze bölgesinde tüm endüstriyel mutfak ekipmanları için hızlı, güvenilir tamir ve teknik servis. Hemen arayın: 0535 418 24 31.',
+    'Etkili Servis; İstanbul, Kocaeli ve Gebze bölgelerinde endüstriyel mutfak ekipmanları, bulaşık makinesi ve fırınlar için profesyonel tamir hizmeti sunar. Hemen arayın: 0535 418 24 31.',
   robots: {
     index: true,
     follow: true,
@@ -25,22 +28,28 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Etkili Servis | Endüstriyel Mutfak Teknik Servisi',
+    description: 'İstanbul ve Kocaeli genelinde garantili endüstriyel mutfak tamir hizmetleri.',
+    images: ['https://etkiliendustriyelservisi.com/hero-bg.jpg'], // Tam URL
+  },
   openGraph: {
-    title: 'Endüstriyel Mutfak Servisi İstanbul | Etkili Servis',
-    description: 
-     'İstanbul, Gebze ve Kocaeli genelinde hızlı ve garantili endüstriyel mutfak teknik servisi.',
-     url: 'https://etkiliendustriyelservisi.com',
-     siteName: 'Etkili Endüstriyel Servis',
-     locale: 'tr_TR',
-     type: 'website',
-     images: [
+    title: 'Etkili Servis | Endüstriyel Mutfak Teknik Servisi',
+    description:
+      'İstanbul, Gebze ve Kocaeli genelinde hızlı ve garantili endüstriyel mutfak teknik servisi.',
+    url: 'https://etkiliendustriyelservisi.com',
+    siteName: 'Etkili Servis',
+    locale: 'tr_TR',
+    type: 'website',
+    images: [
       {
-        url: 'hero-bg.jpg',
+        url: 'https://etkiliendustriyelservisi.com/hero-bg.jpg',
         width: 1200,
         height: 630,
-        alt: 'Etkili Endüstriyel Servis',
+        alt: 'Etkili Servis - Endüstriyel Mutfak Teknik Hizmetleri',
       },
-     ],
+    ],
   },
 }
 
@@ -74,7 +83,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "name": "Etkili Endüstriyel Servis",
+              "name": "Etkili Servis",
               "image": "https://etkiliendustriyelservisi.com/brands/logo.png",
               "url": "https://etkiliendustriyelservisi.com/",
               "telephone": ["+905354182431", "+905051915357"],
@@ -87,6 +96,7 @@ export default function RootLayout({
                 "postalCode": "34785",
                 "addressCountry": "TR"
               },
+              "priceRange": "₺₺",
               "openingHoursSpecification": [
                 {
                   "@type": "OpeningHoursSpecification",
@@ -96,22 +106,10 @@ export default function RootLayout({
                 }
               ],
               "areaServed": [
-                {
-                  "@type": "State",
-                  "name": "İstanbul"
-                },
-                {
-                  "@type": "City",
-                  "name": "Kocaeli"
-                },
-                {
-                  "@type": "City",
-                  "name": "Gebze"
-                },
-                {
-                  "@type": "City",
-                  "name": "İzmit"
-                }
+                {"@type": "State", "name": "İstanbul"},
+                {"@type": "City", "name": "Kocaeli"},
+                {"@type": "City", "name": "Gebze"},
+                {"@type": "City", "name": "İzmit"}
               ],
               "hasMap": "https://maps.google.com/maps?q=Merve+Mahallesi+Sait+Sokak+No:18/A+Sancaktepe+İstanbul"
             })

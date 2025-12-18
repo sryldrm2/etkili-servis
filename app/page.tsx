@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { featuredServices } from '@/data/services'
 import { brands } from '@/data/brands'
 import ServiceCard from '@/components/ServiceCard'
@@ -10,68 +11,56 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative py-32 md:py-40 px-4 bg-primary-dark overflow-hidden min-h-[80vh]">
         {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url(/hero-bg.jpg)',
-          }}
+        <Image 
+          src="/hero-bg.jpg"
+          alt="Etkili Servis Endüstriyel Mutfak Teknik Servisi"
+          fill
+          priority // Hero görseli olduğu için en önce yüklenmesini sağlıyoruz
+          className="object-cover"
+          sizes="100vw"
+          quality={85}
         />
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-primary-dark/20" />
+        <div className="absolute inset-0 bg-primary-dark/40 z-10" />
         
         {/* Content */}
         <div className="container mx-auto text-center relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Endüstriyel Mutfak Ekipmanları
-            <span className="block text-primary-lightest mt-2">Tamir Servisi</span>
+        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            Etkili Servis
+            <span className="block text-primary-lightest mt-2 text-3xl md:text-5xl">
+              Endüstriyel Mutfak Ekipmanları Tamiri
+            </span>
           </h1>
-          <p className="text-xl text-gray-200 max-w-2xl mx-auto">
-            Hızlı, güvenilir ve garantili tamir hizmeti ile işletmenizin mutfak ekipmanlarını 
-            en kısa sürede çalışır hale getiriyoruz.
+          <p className="text-xl text-gray-200 max-w-2xl mx-auto font-medium">
+            İstanbul, Kocaeli ve Gebze bölgesinde hızlı, güvenilir ve garantili teknik servis. 
+            Mutfak ekipmanlarınızı 15 yıllık tecrübemizle en kısa sürede çalışır hale getiriyoruz.
           </p>
         </div>
       </section>
 
       {/* Service Areas Band */}
-      <section className="bg-primary-darkest py-6 px-4">
+      <section className="bg-primary-darkest py-6 px-4 relative z-30">
         <div className="container mx-auto">
           <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-white">
-            <span className="font-semibold text-lg">Hizmet Bölgelerimiz:</span>
+            <span className="font-semibold text-lg">Etkili Servis Hizmet Bölgeleri:</span>
             <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
-              <span className="flex items-center space-x-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                </svg>
-                <span>İstanbul Anadolu Yakası</span>
-              </span>
-              <span className="flex items-center space-x-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                </svg>
-                <span>Gebze</span>
-              </span>
-              <span className="flex items-center space-x-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                </svg>
-                <span>Kocaeli</span>
-              </span>
-              <span className="flex items-center space-x-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                </svg>
-                <span>İzmit</span>
-              </span>
+              {['İstanbul Anadolu', 'Gebze', 'Kocaeli', 'İzmit'].map((region) => (
+                <span key={region} className="flex items-center space-x-2">
+                  <svg className="w-5 h-5 text-primary-lightest" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                  </svg>
+                  <span>{region}</span>
+                </span>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Service Cards - Product Catalog */}
+      {/* Service Cards */}
       <section className="py-16 px-4 bg-bg-light">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-primary-dark text-center mb-12">
-            Hizmetlerimiz
+            Endüstriyel Mutfak Servis Hizmetlerimiz
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredServices.map((service) => (
@@ -79,13 +68,12 @@ export default function Home() {
             ))}
           </div>
           
-          {/* View More Button */}
           <div className="flex justify-center mt-12">
             <Link
               href="/hizmetlerimiz"
-              className="bg-primary-lightest text-white font-bold px-10 py-4 rounded-lg hover:bg-primary-lightest/90 transition-colors shadow-md inline-flex items-center text-lg"
+              className="bg-primary-lightest text-white font-bold px-10 py-4 rounded-lg hover:bg-primary-lightest/90 transition-all transform hover:scale-105 shadow-md inline-flex items-center text-lg"
             >
-              Daha Fazlasını Gör
+              Tüm Hizmetlerimizi Gör
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
@@ -101,10 +89,13 @@ export default function Home() {
             {/* Left Column - Text */}
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Endüstriyel Mutfağınız Emin Ellerde
+              Neden Etkili Servis?
               </h2>
               <p className="text-lg text-gray-200 leading-relaxed">
-                Sektördeki 15 yıllık tecrübemizle; otel, restoran ve kafelerinizdeki endüstriyel mutfak ekipmanlarının bakım ve onarımını üstleniyoruz. İşletmenizin aksamaması için hızlı, güvenilir ve garantili çözümler üretiyoruz.
+              Sektördeki 15 yıllık tecrübemizle <strong>Etkili Servis</strong> olarak; otel, restoran ve kafelerinizdeki endüstriyel mutfak ekipmanlarının bakım ve onarımını profesyonelce üstleniyoruz.
+              </p>
+              <p className="text-lg text-gray-200 leading-relaxed">
+                İşletmenizin mutfak operasyonunun aksamaması için İstanbul ve Kocaeli genelinde yerinde servis imkanı sunuyoruz.
               </p>
             </div>
 
@@ -119,8 +110,8 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-1">15 Yıllık Tecrübe</h3>
-                    <p className="text-sm text-gray-300">Sektörde güvenilir geçmiş</p>
+                    <h3 className="text-xl font-bold text-white mb-1">Hızlı Çözüm</h3>
+                    <p className="text-sm text-gray-300">Etkili ve yerinde tamir desteği</p>
                   </div>
                 </div>
               </div>
@@ -166,7 +157,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-white mb-1">Hızlı & Yerinde Servis</h3>
-                    <p className="text-sm text-gray-300">İstanbul geneli mobil ekip</p>
+                    <p className="text-sm text-gray-300">İstanbul ve Gebze'de en hızlı servis</p>
                   </div>
                 </div>
               </div>
