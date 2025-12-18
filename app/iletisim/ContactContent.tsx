@@ -92,19 +92,36 @@ export default function ContactContent() {
                     </div>
                   </div>
                 </div>
+                {/* E-posta Bölümü */}
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-primary-dark rounded-xl flex items-center justify-center flex-shrink-0 text-white">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-primary-dark font-bold mb-1 text-lg">E-posta</h3>
+                    <a
+                      href="mailto:info@etkiliendustriyelservisi.com"
+                      className="text-gray-600 hover:text-primary-lightest transition-colors"
+                    >
+                      info@etkiliendustriyelservisi.com
+                    </a>
+                  </div>
+                </div>
 
                 <div className="pt-6 border-t border-gray-100">
-                   <h3 className="text-primary-dark font-bold mb-2">Hizmet Bölgelerimiz:</h3>
-                   <p className="text-sm text-gray-600">
-                     Sancaktepe, Ümraniye, Ataşehir, Tuzla, Pendik, Kartal, Gebze, Çayırova, Dilovası, İzmit ve tüm Kocaeli ilçeleri.
-                   </p>
+                  <h3 className="text-primary-dark font-bold mb-2">Hizmet Bölgelerimiz:</h3>
+                  <p className="text-sm text-gray-600">
+                    Sancaktepe, Ümraniye, Ataşehir, Tuzla, Pendik, Kartal, Gebze, Çayırova, Dilovası, İzmit ve tüm Kocaeli ilçeleri.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Harita */}
-          <div className="w-full lg:w-1/2 h-[450px] bg-gray-200 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+          <div className="w-full lg:w-1/2 h-[450px] bg-gray-200 rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative group cursor-pointer">
             <iframe
               width="100%"
               height="100%"
@@ -114,6 +131,20 @@ export default function ContactContent() {
               title="Etkili Servis Sancaktepe Konumu"
               aria-label="Etkili Servis Konum"
             ></iframe>
+            {/* Tıklanabilir Overlay */}
+            <a
+              href="https://www.google.com/maps/place/Etkili+End%C3%BCstriyel+Mutfak+Ekipmanlar%C4%B1+Servis/@40.87893,29.0263517,168800m/data=!3m2!1e3!4b1!4m6!3m5!1s0x81f9fd068706a4b9:0x97bbd5c478c61103!8m2!3d40.879769!4d29.6857664!16s%2Fg%2F11yr2mp7bq?hl=tr-TR&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute inset-0 z-10"
+              aria-label="Haritayı Google Maps'te aç"
+            >
+              <span className="sr-only">Haritayı Google Maps'te aç</span>
+            </a>
+            {/* Hover İpucu */}
+            <div className="absolute bottom-4 left-4 right-4 bg-black/70 text-white px-4 py-2 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
+              Haritaya tıklayarak Google Maps'te açın
+            </div>
           </div>
         </div>
       </div>
