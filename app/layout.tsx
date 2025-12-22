@@ -74,6 +74,18 @@ export default function RootLayout({
             gtag('config', 'G-VE6X24Z8N9');
           `}
         </Script>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17824332582"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17824332582');
+          `}
+        </Script>
         {/* LocalBusiness Schema Markup */}
         <Script
           id="local-business-schema"
@@ -106,10 +118,10 @@ export default function RootLayout({
                 }
               ],
               "areaServed": [
-                {"@type": "State", "name": "İstanbul"},
-                {"@type": "City", "name": "Kocaeli"},
-                {"@type": "City", "name": "Gebze"},
-                {"@type": "City", "name": "İzmit"}
+                { "@type": "State", "name": "İstanbul" },
+                { "@type": "City", "name": "Kocaeli" },
+                { "@type": "City", "name": "Gebze" },
+                { "@type": "City", "name": "İzmit" }
               ],
               "hasMap": "https://maps.google.com/maps?q=Merve+Mahallesi+Sait+Sokak+No:18/A+Sancaktepe+İstanbul"
             })
